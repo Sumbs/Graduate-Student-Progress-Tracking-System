@@ -4,3 +4,9 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, 'gspt_test/index.html')
+
+def students(request):
+    return render(request, 'gspt_test/students.html')
+
+def checklist(request):
+    return render(request, 'gspt_test/checklist.html')
