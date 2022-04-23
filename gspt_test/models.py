@@ -16,6 +16,9 @@ class Lab(models.Model):
     lab_id = models.AutoField(primary_key=True)
     lab_name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return str(self.lab_name)
+
 class Professor(models.Model):
     prof_id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=100)
@@ -37,7 +40,7 @@ class Student(models.Model):
     curr_spec_id = models.ForeignKey(Specialization, on_delete=models.RESTRICT, related_name="current_spec")
     prev_spec_id = models.ForeignKey(Specialization, on_delete=models.RESTRICT, related_name="prev_spec")
     lab_id = models.ForeignKey(Lab, on_delete=models.RESTRICT)
-    adviser_id = models.ForeignKey(Professor, on_delete=models.RESTRICT)
+    adviser_id = models.ForeignKey(Professor, on_delete=models.RESTRICT, null=True)
     study_plan = models.CharField(
         max_length = 1,
         choices = [("1", "Full-time"), ("2", "Part-time"), ("3", "Non-Degree")],
