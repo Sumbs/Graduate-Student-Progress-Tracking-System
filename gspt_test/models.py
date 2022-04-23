@@ -8,15 +8,22 @@ class Degree_Program(models.Model):
     deg_program_id = models.AutoField(primary_key=True)
     deg_program_name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.deg_program_name
+
 class Specialization(models.Model):
     spec_id = models.AutoField(primary_key=True)
-    spec_name = models.CharField(max_length=100)
+    spec_name = models.CharField(max_length=100, unique=True)
+
+    def __str__(self):
+        return self.spec_name
 
 class Lab(models.Model):
     lab_id = models.AutoField(primary_key=True)
     lab_name = models.CharField(max_length=100)
 
     def __str__(self):
+<<<<<<< HEAD
         return str(self.lab_name)
 
 class Professor(models.Model):
@@ -24,13 +31,16 @@ class Professor(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     lab_id = models.ForeignKey(Lab, on_delete=models.RESTRICT)
+=======
+        return self.lab_name
+>>>>>>> 344c3ee8e3eca5e1aac855105e095704897be35f
 
-class Student(models.Model):
-    student_no = models.PositiveIntegerField(primary_key=True)
+class Person(models.Model):
+    person_id = models.PositiveIntegerField(primary_key=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    program_id = models.ForeignKey(Degree_Program, on_delete=models.RESTRICT)
-    year_initial = models.IntegerField(validators=[MinValueValidator(1900), MaxValueValidator(3000)])
+    deg_program_id = models.ForeignKey(Degree_Program, on_delete=models.RESTRICT)
+    year_initial = models.IntegerField(validators=[MinValueValidator(1900), MaxValueValidator(3000)],)
     sem_initial = models.CharField(
         max_length = 1,
         choices = [("1", "1st Semester"), ("2", "2nd Semester"), ("3", "Midyear")],
@@ -40,12 +50,23 @@ class Student(models.Model):
     curr_spec_id = models.ForeignKey(Specialization, on_delete=models.RESTRICT, related_name="current_spec")
     prev_spec_id = models.ForeignKey(Specialization, on_delete=models.RESTRICT, related_name="prev_spec")
     lab_id = models.ForeignKey(Lab, on_delete=models.RESTRICT)
+<<<<<<< HEAD
     adviser_id = models.ForeignKey(Professor, on_delete=models.RESTRICT, null=True)
+=======
+    adviser_id = models.ForeignKey('self', null=True, on_delete=models.RESTRICT)
+    is_professor = models.BooleanField()
+>>>>>>> 344c3ee8e3eca5e1aac855105e095704897be35f
     study_plan = models.CharField(
         max_length = 1,
         choices = [("1", "Full-time"), ("2", "Part-time"), ("3", "Non-Degree")],
         default = "1",
     )
+    gwa = models.DecimalField(max_digits=5, decimal_places=2)
+    units_taken = models.DecimalField(max_digits=4, decimal_places=1)
+    units_required = models.DecimalField(max_digits=4, decimal_places=1)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
     
 class Course(models.Model):
     course_id = models.IntegerField(primary_key=True)
@@ -56,9 +77,12 @@ class Course(models.Model):
         choices = [("1", "Core"), ("2", "Specialization")]
     )
 
+    def __str__(self):
+        return self.title
+
 class Enrollment(models.Model):
     course_id = models.ForeignKey(Course, on_delete=models.RESTRICT)
-    student_no = models.ForeignKey(Student, on_delete=models.RESTRICT)
+    student_no = models.ForeignKey(Person, on_delete=models.RESTRICT)
     grade = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True) # how about INC or DRP? ::resolved by proceeding field
     remark = models.CharField(
         null = True,
@@ -72,6 +96,11 @@ class Enrollment(models.Model):
         default = "1",
     )
 
-class Pre_req(models.Model):
-    pre_course_id = models.ForeignKey(Course, on_delete=models.RESTRICT, related_name="prereq"),
-    new_course_id = models.ForeignKey(Course, on_delete=models.RESTRICT, related_name="course")
+class Prereq(models.Model):
+    pre_course_id = models.ForeignKey(Course, on_delete=models.RESTRICT),
+    new_course_id = models.ForeignKey(Course, on_delete=models.RESTRICT)
+
+class Coreq(models.Model):
+    pre_course_id = models.ForeignKey(Course, on_delete=models.RESTRICT),
+    new_course_id = models.ForeignKey(Course, on_delete=models.RESTRICT)
+
