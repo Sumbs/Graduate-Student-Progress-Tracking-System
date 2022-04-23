@@ -23,17 +23,7 @@ class Lab(models.Model):
     lab_name = models.CharField(max_length=100)
 
     def __str__(self):
-<<<<<<< HEAD
-        return str(self.lab_name)
-
-class Professor(models.Model):
-    prof_id = models.AutoField(primary_key=True)
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    lab_id = models.ForeignKey(Lab, on_delete=models.RESTRICT)
-=======
         return self.lab_name
->>>>>>> 344c3ee8e3eca5e1aac855105e095704897be35f
 
 class Person(models.Model):
     person_id = models.PositiveIntegerField(primary_key=True)
@@ -50,12 +40,8 @@ class Person(models.Model):
     curr_spec_id = models.ForeignKey(Specialization, on_delete=models.RESTRICT, related_name="current_spec")
     prev_spec_id = models.ForeignKey(Specialization, on_delete=models.RESTRICT, related_name="prev_spec")
     lab_id = models.ForeignKey(Lab, on_delete=models.RESTRICT)
-<<<<<<< HEAD
-    adviser_id = models.ForeignKey(Professor, on_delete=models.RESTRICT, null=True)
-=======
     adviser_id = models.ForeignKey('self', null=True, on_delete=models.RESTRICT)
     is_professor = models.BooleanField()
->>>>>>> 344c3ee8e3eca5e1aac855105e095704897be35f
     study_plan = models.CharField(
         max_length = 1,
         choices = [("1", "Full-time"), ("2", "Part-time"), ("3", "Non-Degree")],
@@ -67,6 +53,9 @@ class Person(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+    
+    def year_standing(self):
+        return 5 - years_to_grad
     
 class Course(models.Model):
     course_id = models.IntegerField(primary_key=True)
@@ -103,4 +92,3 @@ class Prereq(models.Model):
 class Coreq(models.Model):
     pre_course_id = models.ForeignKey(Course, on_delete=models.RESTRICT),
     new_course_id = models.ForeignKey(Course, on_delete=models.RESTRICT)
-
