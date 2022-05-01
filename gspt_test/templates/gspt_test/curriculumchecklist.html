@@ -64,8 +64,8 @@
         <div class="pl-3 w-20 bg-white shadow-md" style="background-color:#146835;"> 
             <br>
             <a href='/homepage'> {% load static %} <img src="{% static "home-white-icon.png"%}" width="50px"></a> <br><br>
-            {% load static %} <img src="{% static "student-profiles-white-icon.png"%}" width="50px"> <br><br>
-            {% load static %} <img src="{% static "curriculum-checklist-white-icon.png"%}" width="50px"> <br><br>
+            <a href='/'> {% load static %} <img src="{% static "student-profiles-white-icon.png"%}" width="50px"> </a> <br><br>
+            <a href='/curriculumchecklist'>{% load static %} <img src="{% static "curriculum-checklist-white-icon.png"%}" width="50px"></a>  <br><br>
         </div>
         <div class="flex-grow">
             {% block content %}
