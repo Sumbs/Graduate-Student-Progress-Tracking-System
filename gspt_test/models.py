@@ -63,7 +63,7 @@ class Course(models.Model):
     title = models.CharField(max_length=50)
     kind = models.CharField(
         max_length = 1,
-        choices = [("1", "Core"), ("2", "Specialization")]
+        choices = [("1", "Core"), ("2", "Specialization"), ("3", "Elective")]
     )
 
     def __str__(self):
