@@ -40,7 +40,7 @@ class Person(models.Model):
     curr_spec_id = models.ForeignKey(Specialization, on_delete=models.RESTRICT, related_name="current_spec")
     prev_spec_id = models.ForeignKey(Specialization, on_delete=models.RESTRICT, related_name="prev_spec")
     lab_id = models.ForeignKey(Lab, on_delete=models.RESTRICT)
-    adviser_id = models.ForeignKey('self', null=True, on_delete=models.RESTRICT)
+    adviser_id = models.ForeignKey('self', null=True, blank=True, on_delete=models.RESTRICT)
     is_professor = models.BooleanField()
     study_plan = models.CharField(
         max_length = 1,
@@ -55,7 +55,7 @@ class Person(models.Model):
         return f"{self.first_name} {self.last_name}"
     
     def year_standing(self):
-        return 5 - years_to_grad
+        return str(5 - self.years_to_grad)
     
 class Course(models.Model):
     course_id = models.IntegerField(primary_key=True)
