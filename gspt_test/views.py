@@ -10,3 +10,6 @@ def homepage(request):
 
 def login(request):
     return render(request, 'gspt_test/login.html')
+
+def curriculumchecklist(request):
+    return render(request, 'gspt_test/curriculumchecklist.html')
