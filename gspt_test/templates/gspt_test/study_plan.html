@@ -1,0 +1,37 @@
+{% extends "gspt_test/index.html" %}
+
+{% block title %}Student Profiles{% endblock %}
+
+{% block content %} 
+<div class="mx-8 mt-4">
+    <table id="plan" class="display w-full">
+        <thead>
+            <tr>
+                <th>Course Type</th>
+                <th>Course Title</th>
+                <th>Semester</th>
+                <th>Year</th>
+                <th>Grade</th>
+                <th>Remark</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for enrollment in enrollments %}
+            <tr>
+                <td>{{ enrollment.course_id.kind }}</td>
+                <td>{{ enrollment.course_id.title }}</td>
+                <td>{{ enrollment.sem }}</td>
+                <td>{{ enrollment.year }}</td>
+                <td>{{ enrollment.grade }}</td>
+                <td>{{ enrollment.remark }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script>
+    let table = new DataTable('#plan', {
+        // options
+    });
+</script>
+{% endblock %}
