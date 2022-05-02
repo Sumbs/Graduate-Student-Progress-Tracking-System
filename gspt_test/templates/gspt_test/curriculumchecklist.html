@@ -19,44 +19,44 @@
 </head>
 
 <body class="flex flex-col w-full h-full bg-stone-50">
-
-    <div class="flex space-x-2 ml-3 mt-3 shadow-md z-40 h-20">
-        <div class="flex-none">
-            {% load static %} <img src="{% static "up_logo.png" %}" width="70px"/> 
-        </div> 
-            
-        <div class="flex-none" style="margin-left:5px;">
-            {% load static %} <img src="{% static "dcs_logo.png" %}" width="70px"/>
-        </div>
-
-        <div class="flex-none" style="margin-top:15px;margin-left:10px;text-align:left;line-height:120%;">
-            <font color="#7b1113" size="4">University of the Philippines Diliman</font><br>
-            <font color="#146835" size="4">Department of Computer Science</font>
-        </div>
-
-        <div class="flex-grow">    
-            <div class="p-2 px-0" style="text-align:right;margin-top:17.4px;margin-right:2.5px">
-                Carlo Sumabat <!-- Name of user -->
+    <header>
+        <div class="flex space-x-2 ml-3 mt-3 shadow-md z-40 h-20">
+            <div class="flex-none">
+                {% load static %} <img src="{% static "up_logo.png" %}" width="70px"/> 
             </div> 
-        </div> 
-        
-        <div class="flex-none">
-            <div class="dropdown mt-5">
-                <div class="flex items-center justify-between">
-                        <div class="flex flex-col px-0" style="margin-right:-0.2px">
-                            {% load static %} <img src="{% static "default-user-icon.png"%}" style="height:40px">
-                        </div>
-                        <div class="flex flex-col px-1" style="margin-left:0.5px;margin-right:50px">
-                            {% load static %} <img src="{% static "user-button-down.png"%}" style="height:8px; width:9.5px">
-                        </div>
-                </div>
-                <div class="dropdown-content">
-                    <a href="#">Change Password</a>
-                    <a href="/login/">Log out</a>
-                </div> 
+                
+            <div class="flex-none" style="margin-left:5px;">
+                {% load static %} <img src="{% static "dcs_logo.png" %}" width="70px"/>
             </div>
-        </div>
 
+            <div class="flex-none" style="margin-top:15px;margin-left:10px;text-align:left;line-height:120%;">
+                <font color="#7b1113" size="4">University of the Philippines Diliman</font><br>
+                <font color="#146835" size="4">Department of Computer Science</font>
+            </div>
+
+            <div class="flex-grow">    
+                <div class="p-2 px-0" style="text-align:right;margin-top:17.4px;margin-right:2.5px">
+                    Carlo Sumabat <!-- Name of user -->
+                </div> 
+            </div> 
+            
+            <div class="flex-none">
+                <div class="dropdown mt-5">
+                    <div class="flex items-center justify-between">
+                            <div class="flex flex-col px-0" style="margin-right:-0.2px">
+                                {% load static %} <img src="{% static "default-user-icon.png"%}" style="height:40px">
+                            </div>
+                            <div class="flex flex-col px-1" style="margin-left:0.5px;margin-right:50px">
+                                {% load static %} <img src="{% static "user-button-down.png"%}" style="height:8px; width:9.5px">
+                            </div>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="#">Change Password</a>
+                        <a href="/login/">Log out</a>
+                    </div> 
+                </div>
+            </div>
+        </header>
     </div> 
 
     
@@ -162,7 +162,6 @@
 
                 </table>
             </div>
-            <br>
             <br>
             {% endblock %}
         </div>
