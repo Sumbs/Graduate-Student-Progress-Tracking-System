@@ -58,7 +58,7 @@ class Person(models.Model):
         return str(5 - self.years_to_grad)
     
 class Course(models.Model):
-    course_id = models.IntegerField(primary_key=True)
+    course_id = models.AutoField(primary_key=True)
     lab_id = models.ForeignKey(Lab, on_delete=models.RESTRICT)
     title = models.CharField(max_length=50)
     kind = models.CharField(
@@ -72,18 +72,22 @@ class Course(models.Model):
 class Enrollment(models.Model):
     course_id = models.ForeignKey(Course, on_delete=models.RESTRICT)
     student_no = models.ForeignKey(Person, on_delete=models.RESTRICT)
-    grade = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True) # how about INC or DRP? ::resolved by proceeding field
+    grade = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
     remark = models.CharField(
         null = True,
         blank = True,
         max_length = 1,
-        choices = [("1", "pass"), ("2", "inc"), ("3", "drp")],
+        choices = [("1", "Pass"), ("2", "INC"), ("3", "DRP")],
     )
+    year = models.IntegerField(validators=[MinValueValidator(1900), MaxValueValidator(3000)],)
     sem = models.CharField(
         max_length = 1,
         choices = [("1", "1st Semester"), ("2", "2nd Semester"), ("3", "Midyear")],
         default = "1",
     )
+
+    def __str__(self):
+        return f"{self.course_id}: {self.student_no}"
 
 class Prereq(models.Model):
     pre_course_id = models.ForeignKey(Course, on_delete=models.RESTRICT),
