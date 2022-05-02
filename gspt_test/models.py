@@ -30,7 +30,7 @@ class Person(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     deg_program_id = models.ForeignKey(Degree_Program, on_delete=models.RESTRICT)
-    year_initial = models.IntegerField(validators=[MinValueValidator(1900), MaxValueValidator(3000)],)
+    year_initial = models.IntegerField(validators=[MinValueValidator(1900), MaxValueValidator(3000)])
     sem_initial = models.CharField(
         max_length = 1,
         choices = [("1", "1st Semester"), ("2", "2nd Semester"), ("3", "Midyear")],
@@ -60,6 +60,7 @@ class Person(models.Model):
 class Course(models.Model):
     course_id = models.AutoField(primary_key=True)
     lab_id = models.ForeignKey(Lab, on_delete=models.RESTRICT)
+    units = models.IntegerField()
     title = models.CharField(max_length=50)
     kind = models.CharField(
         max_length = 1,
@@ -87,7 +88,20 @@ class Enrollment(models.Model):
     )
 
     def __str__(self):
-        return f"{self.course_id}: {self.student_no}"
+        return f"{self.course_id} ({self.get_semester()}, {self.acad_year()}): {self.student_no}"
+    
+    def acad_year(self):
+        return f"{self.year}-{self.year + 1}"
+
+    def get_semester(self):
+        sem = self.sem
+        if sem == "1":
+            return "1st Semester"
+        elif sem == "2":
+            return "2nd Semester"
+        else:
+            return "Midyear"
+        
 
 class Prereq(models.Model):
     pre_course_id = models.ForeignKey(Course, on_delete=models.RESTRICT),
