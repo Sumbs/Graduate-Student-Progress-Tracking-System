@@ -67,9 +67,103 @@
             <a href='/'> {% load static %} <img src="{% static "student-profiles-white-icon.png"%}" width="50px"> </a> <br><br>
             <a href='/curriculumchecklist'>{% load static %} <img src="{% static "curriculum-checklist-white-icon.png"%}" width="50px"></a>  <br><br>
         </div>
+
+
         <div class="flex-grow">
             {% block content %}
-  
+            <div class ="mx-8 mt-8">
+                <table class="table-auto" style="margin-left: auto; margin-right: auto; width:600px; border:1px solid black;">
+                    <caption style="text-align:center; font-weight: bold; border:1px solid black;">MASTER OF SCIENCE IN COMPUTER SCIENCE
+                        <br> <font size="2px">Non-Thesis 37 units</font>
+                    </caption>
+                    <caption style="text-align:center; border:1px solid black; line-height:10px; padding:10px">
+                        <font size="1px"> APPROVAL <br>
+                            106th UPD UC : 15 December 2008 | President ER Roman: 06 February 2009
+                        </font> 
+                    </caption>
+
+                    <tr style="text-align:center; font-weight: bold; background-color:#939598; padding:3px; border:1px solid black;">
+                        <td colspan="3"><font size="3px" color="white" style="letter-spacing:10px; ">FIRST YEAR</font></td>
+                    </tr>
+    
+                    <tr style="text-align:center; font-weight: bold; color:white;">
+                        <td style="text-align:center; background-color:#3e3e3f; width:50%; line-height:15px; padding:5px; border:1px solid black;">
+                            <font size="2px" color="white">1st Semester</font><br> 
+                            <font size="2px" color="white">12 units</font> 
+                        </td>
+                        <td style="text-align:center; background-color:#3e3e3f; width:50%; line-height:15px; border:1px solid black;">
+                            <font size="2px" color="white">2nd Semester</font><br> 
+                            <font size="2px" color="white">10 units</font> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CS Theory Course (3)</td>
+                        <td>CS 296 (1) </td>
+                    </tr>
+                    <tr>
+                        <td>CS Systems Course (3)</td>
+                        <td>CS Specialization Course (3)</td>
+                    </tr>
+                    <tr>
+                        <td>CS Theory or Systems Course (3)</td>
+                        <td>CS Specialization Course (3)</td>
+                    </tr>
+                    <tr>
+                        <td>CS Specialization Course (3)</td>
+                        <td>CS Specialization Course (3)</td>
+                    </tr>
+
+                    
+                    <tr style="text-align:center; font-weight: bold; background-color:#939598; padding:3px; border:1px solid black;">
+                        <td colspan="3"><font size="3px" color="white" style="letter-spacing:10px; ">SECOND YEAR</font></td>
+                    </tr>
+    
+                    <tr style="text-align:center; font-weight: bold; color:white;">
+                        <td style="text-align:center; background-color:#3e3e3f; width:50%; line-height:15px; padding:5px; border:1px solid black;">
+                            <font size="2px" color="white">1st Semester</font><br> 
+                            <font size="2px" color="white">12 units</font> 
+                        </td>
+                        <td style="text-align:center; background-color:#3e3e3f; width:50%; line-height:15px; border:1px solid black;">
+                            <font size="2px" color="white">2nd Semester</font><br> 
+                            <font size="2px" color="white">3 units</font> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CS 298 (1)</td>
+                        <td>Elective</td>
+                    </tr>
+                    <tr>
+                        <td>CS Systems Course (3)</td>
+                        <td>Comprehensive Examination</td>
+                    </tr>
+                    <tr>
+                        <td>Elective (3)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Elective (3)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><i><font size="2px">
+                            <br>Core Courses:
+                            <br>Theory Courses: CS 204, CS 210
+                            <br>Systems Courses: CS 250, CS 255, CS 270, CS 260, CS 280
+                            <br>2 Specialization Courses:
+                            <br>Theory Courses: CS 204, CS 208, CS 210, CS 211, CS 213, CS 214, CS 216, CS
+                            <br>222, CS 225, CS 231, CS 236, CS 237, CS 271, CS 290, CS 294, ES 201, ES 202
+                            <br>Systems Courses: CS 220, CS 237, CS 239, CS 240, CS 242, CS 250, CS 253, CS
+                            <br>255, CS 256, CS 257, CS 258, CS 259, CS 260, CS 262, CS 265, CS 266, CS 267, CS
+                            <br>268, CS 270, CS 280, CS 281, CS 282, CS 283, CS 284, CS 286, CS 291, CS 292, CS
+                            <br>293, CS 295, CS 297, CS 298, EE 227, EE 267, EE 270, EE 274, EE 264, GE 203,
+                            <br>GE 213, IE 253, IE 254
+                        </font></i></td>
+                    </tr>
+
+                </table>
+            </div>
+            <br>
+            <br>
             {% endblock %}
         </div>
     </main>
