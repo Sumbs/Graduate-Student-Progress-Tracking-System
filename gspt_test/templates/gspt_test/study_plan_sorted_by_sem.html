@@ -1,0 +1,41 @@
+{% extends "gspt_test/study_plan.html" %}
+
+{% block study_plan %}
+<h1 class="font-bold leading-tight text-4xl mx-8 my-6">
+    Courses Sorted by Semester
+</h1>
+<div class="mx-8 my-4 grid grid-cols-2 gap-10">
+    {% regroup enrollments by year as acad_year %}
+    {% for enroll_year in acad_year %}
+    {% regroup enroll_year.list by sem as semesters %}
+    {% for semester in semesters %}
+    <div>
+        <h2 class="font-bold leading-tight text-xl mx-4 my-4">
+            {{ semester.list.0.get_semester }}, A.Y. {{ enroll_year.grouper }}-{{ enroll_year.grouper|add:1 }}
+        </h2>
+        <table class="display w-full">
+            <thead>
+                <tr>
+                    <th>Course Title</th>
+                    <th>Unit</th>
+                    <th>Grade</th>
+                    <th>Remark</th>
+                </tr>
+            </thead>
+            <tbody class="border-b border-t border-black">
+                {% for class in semester.list %}
+                <tr>
+                    <td>{{ class.course_id.title }}</td>
+                    <td>{{ class.course_id.units }}</td>
+                    <td>{{ class.grade }}</td>
+                    <td>{{ class.get_remark_display }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% if semester.list.0.sem == "3" %} <div></div> {% endif %}
+    {% endfor %}
+    {% endfor %}
+</div>
+{% endblock %}

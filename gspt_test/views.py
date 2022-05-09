@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 
 # Create your views here.
+
 def loginUser(request):
     if request.user.is_authenticated:
         return redirect('gspt_test:index')
@@ -31,27 +32,30 @@ def logoutUser(request):
 
 @login_required(login_url='gspt_test:login')
 def index(request):
-    return render(request, 'gspt_test/index.html')
+    return render(request, "gspt_test/index.html")
+
 
 @login_required(login_url='gspt_test:login')
 def students(request):
     people = Person.objects.all()
     context = {"people": people}
 
-    return render(request, 'gspt_test/students.html', context)
+    return render(request, "gspt_test/students.html", context)
+
 
 @login_required(login_url='gspt_test:login')
 def study_plan(request, person_id):
-    enrollments = (Enrollment
-                    .objects.select_related('course_id')
-                    .filter(student_no=person_id)
-                    .order_by('year', 'sem')
-                )
+    enrollments = (
+        Enrollment.objects.select_related("course_id")
+        .filter(student_no=person_id)
+        .order_by("year", "sem")
+    )
 
     context = {"enrollments": enrollments}
 
-    return render(request, 'gspt_test/study_plan.html', context)
+    return render(request, "gspt_test/study_plan_sorted_by_sem.html", context)
+    
 
 @login_required(login_url='gspt_test:login')
 def checklist(request):
-    return render(request, 'gspt_test/checklist.html')
+    return render(request, "gspt_test/checklist.html")
