@@ -3,25 +3,29 @@ from .models import *
 
 # Create your views here.
 
+
 def index(request):
-    return render(request, 'gspt_test/index.html')
+    return render(request, "gspt_test/index.html")
+
 
 def students(request):
     people = Person.objects.all()
     context = {"people": people}
 
-    return render(request, 'gspt_test/students.html', context)
+    return render(request, "gspt_test/students.html", context)
+
 
 def study_plan(request, person_id):
-    enrollments = (Enrollment
-                    .objects.select_related('course_id')
-                    .filter(student_no=person_id)
-                    .order_by('year', 'sem')
-                )
+    enrollments = (
+        Enrollment.objects.select_related("course_id")
+        .filter(student_no=person_id)
+        .order_by("year", "sem")
+    )
 
     context = {"enrollments": enrollments}
 
-    return render(request, 'gspt_test/study_plan.html', context)
+    return render(request, "gspt_test/study_plan_sorted_by_sem.html", context)
+    
 
 def checklist(request):
-    return render(request, 'gspt_test/checklist.html')
+    return render(request, "gspt_test/checklist.html")
