@@ -19,7 +19,7 @@ def loginUser(request):
             login(request,user)
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
-            return redirect('gspt_test:index')
+            return redirect('gspt_test:home')
         else:
             messages.warning(request, 'Username or Password is incorrect.')
 
@@ -59,3 +59,7 @@ def study_plan(request, person_id):
 @login_required(login_url='gspt_test:login')
 def checklist(request):
     return render(request, "gspt_test/checklist.html")
+
+@login_required(login_url='gspt_test:login')
+def home(request):
+    return render(request, "gspt_test/home.html")

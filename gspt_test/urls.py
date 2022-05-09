@@ -10,6 +10,7 @@ urlpatterns = [
     path('checklist', views.checklist, name = 'checklist'),
     path('login', views.loginUser, name = 'login'),
     path('logout', views.logoutUser, name = 'logout'),
+    path('home', views.home, name = 'home'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -1,7 +1,792 @@
 {% extends "gspt_test/index.html" %}
 
 {% block content %}
-<div class="mx-4 mt-4">
-    Curriculum Checklist
+<div class ="mx-8 mt-4">
+    <font color="#146835" size="7">Curriculum Checklist</font>
+    <div class="relative flex items-center">
+        <div class="flex-grow border-t border-stone-500"></div>
+    </div>
+
+    <br>
+    <div class="flex space-x-2 z-40">
+        <div class="flex-grow">
+            <table style="margin-right:auto; margin-left:auto; width:600px; border:1px solid black;">
+                <caption style="text-align:center; font-weight: bold; border:1px solid black;">MASTER OF SCIENCE IN COMPUTER SCIENCE
+                    <br> <font size="2px">Non-Thesis 37 units</font>
+                </caption>
+                <caption style="text-align:center; border:1px solid black; line-height:10px; padding:10px">
+                    <font size="1px"> APPROVAL <br>
+                        106th UPD UC : 15 December 2008 | President ER Roman: 06 February 2009
+                    </font> 
+                </caption>
+
+                <tr style="text-align:center; font-weight: bold; background-color:#939598; padding:3px; border:1px solid black;">
+                    <td colspan="3"><font size="3px" color="white" style="letter-spacing:10px; ">FIRST YEAR</font></td>
+                </tr>
+
+                <tr style="text-align:center; font-weight: bold; color:white;">
+                    <td style="text-align:center; background-color:#3e3e3f; width:50%; line-height:15px; padding:5px; border:1px solid black;">
+                        <font size="2px" color="white">1st Semester</font><br> 
+                        <font size="2px" color="white">12 units</font> 
+                    </td>
+                    <td style="text-align:center; background-color:#3e3e3f; width:50%; line-height:15px; border:1px solid black;">
+                        <font size="2px" color="white">2nd Semester</font><br> 
+                        <font size="2px" color="white">10 units</font> 
+                    </td>
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>CS Theory Course¹</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                    <td><table style="width:100%"><tr><td>CS 296</td><td style="text-align:right; padding-right:20px ">1</td></tr></table></td> 
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>CS Systems Course¹</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                    <td><table style="width:100%"><tr><td>CS Specialization Course²</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>CS Theory or Systems Course¹</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                    <td><table style="width:100%"><tr><td>CS Specialization Course²</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td>
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>CS Specialization Course²</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td>
+                    <td><table style="width:100%"><tr><td>CS Specialization Course²</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td>
+                </tr>
+
+                
+                <tr style="text-align:center; font-weight: bold; background-color:#939598; padding:3px; border:1px solid black;">
+                    <td colspan="3"><font size="3px" color="white" style="letter-spacing:10px; ">SECOND YEAR</font></td>
+                </tr>
+
+                <tr style="text-align:center; font-weight: bold; color:white;">
+                    <td style="text-align:center; background-color:#3e3e3f; width:50%; line-height:15px; padding:5px; border:1px solid black;">
+                        <font size="2px" color="white">1st Semester</font><br> 
+                        <font size="2px" color="white">12 units</font> 
+                    </td>
+                    <td style="text-align:center; background-color:#3e3e3f; width:50%; line-height:15px; border:1px solid black;">
+                        <font size="2px" color="white">2nd Semester</font><br> 
+                        <font size="2px" color="white">3 units</font> 
+                    </td>
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>CS 298</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                    <td><table style="width:100%"><tr><td>Elective</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>CS Systems Course</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                    <td>Comprehensive Examination</td>
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>Elective</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>Elective</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><i><font size="2px">
+                        <br>¹ Core Courses:
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;Theory Courses: CS 204, CS 210
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;Systems Courses: CS 250, CS 255, CS 270, CS 260, CS 280
+                        <br>² Specialization Courses:
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Theory Courses: CS 204, CS 208, CS 210, CS 211, CS 213, CS 214, CS 216, CS
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;222, CS 225, CS 231, CS 236, CS 237, CS 271, CS 290, CS 294, ES 201, ES 202
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Systems Courses: CS 220, CS 237, CS 239, CS 240, CS 242, CS 250, CS 253, CS
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;255, CS 256, CS 257, CS 258, CS 259, CS 260, CS 262, CS 265, CS 266, CS 267, CS
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;268, CS 270, CS 280, CS 281, CS 282, CS 283, CS 284, CS 286, CS 291, CS 292, CS
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;293, CS 295, CS 297, CS 298, EE 227, EE 267, EE 270, EE 274, EE 264, GE 203,
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;GE 213, IE 253, IE 254
+                    </font></i></td>
+                </tr>
+
+            </table>
+        </div>
+    
+
+
+        <div class="flex-grow">
+            <table style="margin-right:auto; margin-left:auto; width:600px; border:1px solid black;">
+                <caption style="text-align:center; font-weight: bold; border:1px solid black;">MASTER OF SCIENCE IN COMPUTER SCIENCE
+                    <br> <font size="2px">Thesis 31 units</font>
+                </caption>
+                <caption style="text-align:center; border:1px solid black; line-height:10px; padding:10px">
+                    <font size="1px"> APPROVAL <br>
+                        106th UPD UC : 15 December 2008 | President ER Roman: 06 February 2009
+                    </font> 
+                </caption>
+
+                <tr style="text-align:center; font-weight: bold; background-color:#939598; padding:3px; border:1px solid black;">
+                    <td colspan="3"><font size="3px" color="white" style="letter-spacing:10px; ">FIRST YEAR</font></td>
+                </tr>
+
+                <tr style="text-align:center; font-weight: bold; color:white;">
+                    <td style="text-align:center; background-color:#3e3e3f; width:50%; line-height:15px; padding:5px; border:1px solid black;">
+                        <font size="2px" color="white">1st Semester</font><br> 
+                        <font size="2px" color="white">9 units</font> 
+                    </td>
+                    <td style="text-align:center; background-color:#3e3e3f; width:50%; line-height:15px; border:1px solid black;">
+                        <font size="2px" color="white">2nd Semester</font><br> 
+                        <font size="2px" color="white">10 units</font> 
+                    </td>
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>CS Theory Course¹</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                    <td><table style="width:100%"><tr><td>CS 296</td><td style="text-align:right; padding-right:20px ">1</td></tr></table></td> 
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>CS Systems Course¹</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                    <td><table style="width:100%"><tr><td>CS Specialization Course²</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>CS Theory or Systems Course¹</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                    <td><table style="width:100%"><tr><td>CS Specialization Course²</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><table style="width:100%"><tr><td>Elective</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td>
+                </tr>
+
+                
+                <tr style="text-align:center; font-weight: bold; background-color:#939598; padding:3px; border:1px solid black;">
+                    <td colspan="3"><font size="3px" color="white" style="letter-spacing:10px; ">SECOND YEAR</font></td>
+                </tr>
+
+                <tr style="text-align:center; font-weight: bold; color:white;">
+                    <td style="text-align:center; background-color:#3e3e3f; width:50%; line-height:15px; padding:5px; border:1px solid black;">
+                        <font size="2px" color="white">1st Semester</font><br> 
+                        <font size="2px" color="white">6 units</font> 
+                    </td>
+                    <td style="text-align:center; background-color:#3e3e3f; width:50%; line-height:15px; border:1px solid black;">
+                        <font size="2px" color="white">2nd Semester</font><br> 
+                        <font size="2px" color="white">6 units</font> 
+                    </td>
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>CS 298</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                    <td><table style="width:100%"><tr><td>CS 300</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>CS Specialization Course</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>Elective</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><table style="width:100%"><tr><td>Elective</td><td style="text-align:right; padding-right:20px ">3</td></tr></table></td> 
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><i><font size="2px">
+                        <br>¹ Core Courses:
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;Theory Courses: CS 204, CS 210
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;Systems Courses: CS 250, CS 255, CS 270, CS 260, CS 280
+                        <br>² Specialization Courses:
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Theory Courses: CS 204, CS 208, CS 210, CS 211, CS 213, CS 214, CS 216, CS
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;222, CS 225, CS 231, CS 236, CS 237, CS 271, CS 290, CS 294, ES 201, ES 202
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Systems Courses: CS 220, CS 237, CS 239, CS 240, CS 242, CS 250, CS 253, CS
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;255, CS 256, CS 257, CS 258, CS 259, CS 260, CS 262, CS 265, CS 266, CS 267, CS
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;268, CS 270, CS 280, CS 281, CS 282, CS 283, CS 284, CS 286, CS 291, CS 292, CS
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;293, CS 295, CS 297, CS 298, EE 227, EE 267, EE 270, EE 274, EE 264, GE 203,
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;GE 213, IE 253, IE 254
+                    </font></i></td>
+                </tr>
+            </table>
+            <br>
+        </div>
+    </div>
+
+
+    <br><br><br>
+    <center><font size="5"><b>Computer Science Graduate Courses</b></font></center>
+    <table style="width:100%;">
+        <tr style="background-color:#fafafc;">
+            <td style="text-align:center; width:20%;"><b>CS 204</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Theory of Computation.</b> Formal models of computation; recursive function theory; undecidability. Resourcebounded computational complexity, non-determinism, NPcompleteness. Prereq: CS 133/COI. 3 u.</td>
+        </tr>
+        
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 208</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Complexity Theory.</b> Computational models, measures of complexity, complexity classes: nondeterministic, alternating, probabilistic, parallel. Boolean circuits. Complete problems. Prereq: CS 204. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 210</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Advanced Algorithms and Data Structures</b>. Advanced data structures; algorithm design techniques; mathematical techniques in the analysis of algorithms. Prereq: CS 135/equiv. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 211</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Combinatorial Optimization.</b> Design and analysis of
+                algorithms for combinatorial optimization problems, worstcase complexity, NP- Completeness proofs, heuristics. Open
+                problems. Prereq: COI. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 213</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Communications Theory.</b> Mathematical theory of
+                communication. Information Theory, Communication
+                Channels. Coding. Cryptography. Prereq: COI. 3u.</td>
+        </tr>
+        
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 214</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Parallel Algorithms.</b> Models of parallel computation.
+                Performance measures, scalability, pipelining, techniques
+                for analyzing parallel algorithms. Interconnection network
+                topologies. Applications. Prereq: CS 210. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 216</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Randomized Algorithms.</b> Construction and analysis
+                of randomized algorithms. Expected performance of
+                randomized algorithms, fundamental limitations on
+                probabilistic computations, complexity issues, applications.
+                Prereq: CS 135, Stat 130/COI. 3 u.</td>
+        </tr>
+        
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 220</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Survey of Programming Languages. </b>Comparative study
+                of different types of modern programming languages;
+                imperative, functional, logic-based and object-oriented.
+                Syntax, semantics and implementation of programming
+                languages. Prereq: CS 150/equiv. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 213</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Communications Theory.</b> Mathematical theory of
+                communication. Information Theory, Communication
+                Channels. Coding. Cryptography. Prereq: COI. 3u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 222</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Programming Language Theory.</b> Fundamental concepts
+                underlying all programming languages. Semantic aspects
+                including binding times, visibility, retention, storage
+                management, abstraction mechanisms and extensibility.
+                Operational and denotational semantic specifications.
+                Prereq: CS 150/equiv. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 225</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Compiler Design and Construction.</b> Theory of compiler
+                design and construction: techniques in error correction
+                and recovery; code generation and optimization. Prereq: CS
+                220. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 231</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Numerical Computing.</b> Algorithm design for numerical
+                computation. Error analysis. Performance evaluation of
+                numerical software. Prereq: CS 131/COI. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 236</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Scientific Computing.</b> Problems and methods in scientific
+                computing. Applications from science and engineering.
+                Prereq: COI. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 237</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Biomedical Informatics.</b> Computational methods for
+                managing and analyzing information about biomedical
+                systems. Standards and tools in biomedical informatics.
+                Prereq: COI. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 239</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Parallel Computing.</b> Parallel computer architectures.
+                Programming for parallel architectures. Representation,
+                program dependence, control structures. Prereq: COI. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 240</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Computer Graphics.</b> Solid modeling: Euler operators, finite
+                element methods. Rendering: filling, shading, ray tracing.
+                Natural modeling: L-systems, fractals. Image processing:
+                filtering, antialiasing, enhancement. Prereq: COI. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 242</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Data Visualization.</b> Visualization techniques for data
+                from science, business, social science, demographics, and
+                information management. Prereq: COI. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 247</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Cryptography.</b> Primality testing, finite fields, elliptic curves.
+                Protocols: public key cryptography, digital signatures, zero
+                knowledge proofs, and other cryptographic protocols. Prereq:
+                COI. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 250</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Advanced Operating Systems.</b> Synchronization and
+                communication mechanisms, virtual memory management,
+                file systems, deadlock control, resource allocation, protection
+                and access control. Case study of specialized systems. Prereq:
+                CS 140/equiv. 3 u. </td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 253</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Computer Security.</b> Encryption, digital signatures,
+                authentication, key management. Secure electronic
+                commerce. Network Security. File security. Prereq: COI. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 255</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Advanced Computer Networks.</b> The OSI Reference Model
+                and layers. Distributed computing. Networked multimedia
+                systems. Clint-server computing. Communication and
+                internetworking. Prereq: CS 250. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 256</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Computer Systems Performance Analysis.</b> Overview of
+                performance evaluation. Measurement techniques and
+                tools. Applications of probability theory and techniques.
+                Experimental design and analysis. Simulation and queuing
+                models. Prereq: COI. 3 u</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 257</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Distributed Systems.</b> Computer communications netwoks and
+                their protocols. Event ordering and synchronization. Deadlocks.
+                Network operating systems and languages for distributed
+                computing. Distributed databases. Fault tolerance and recovery
+                strategies. Applications. Prereq: CS 140/equiv. 3 u. </td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 258</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Mobile Computing.</b> Mobile computing systems. Data
+                management, packet transmission, mobile IP, routing
+                protocols, reliability and issues in mobile wireless networks.
+                Prereq: COI. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 259</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Network Performance, Modeling and Monitoring.</b> Network
+                performance evaluation. Measurement techniques and tools.
+                Simulation, queuing models, case studies, practicals. Prereq:
+                CS 255, 256/COI. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 260</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Advanced Software Engineering. </b>Structured approach to
+                requirements analysis, system design, implementation and
+                maintenance of software systems. Formal description and
+                documentation techniques. Prereq: CS 192/equiv. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 262</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Methods of Software Development.</b> Modern approaches to
+                software development. Prototyping and automated tools.
+                Computer Aided Systems Engineering (CASE) methods and
+                tools. Object-oriented Programming Systems (OOPS). Prereq:
+                CS 260. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 211</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Combinatorial Optimization.</b> Design and analysis of
+                algorithms for combinatorial optimization problems, worstcase complexity, NP- Completeness proofs, heuristics. Open
+                problems. Prereq: COI. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 265</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Software Quality Assurance.</b> Quality Management, Quality
+                Assurance, Quality Control. Measurement and Analysis.
+                Maturity Model. Prereq: CS 260 or COI. 3u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 266</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>IT Project Management.</b> Detailed discussions of project
+                management knowledge areas and processes. Case studies.
+                Simulations and walkthrough of real-world IT projects from
+                initiation and planning to evaluation and closing. Prereq: COI. 3u. </td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 267</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Software Engineering for the Web.</b> Software process and
+                requirements analysis, design, dvelopment and testing
+                for web-based systems, software development tools,
+                configuration management systems, case studies. Prereq: CS
+                260, CS 270 or COI. 3u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 268</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Web Science.</b> The Web as a full communications medium that
+                fosters full collaboration, social interaction, and commerce.
+                Case studies. Prereq: CS 267. 3u. </td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 270</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Advanced Database Systems.</b> Data models and their
+                underlying mathematical foundations; database manipulation
+                and query languages; functional dependencies; physical data
+                organization and indexing methods; concurrency control;
+                crash recovery; database security; distributed databases.
+                Prereq: CS 165/equiv. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 271</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Database Theory.</b> Relational database model, query
+                languages, domain independence, relational calculus, query
+                optimization, constraints. Prereq: CS 165/equiv. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 280</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Intelligent Systems.</b> Fundamental issues in Intelligent
+                Systems. Intelligent search and optimization methods.
+                Knowledge representation and reasoning. Learning, natural
+                language understanding, pattern recognition, knowledgebased systems and other methods in Intelligent Systems.
+                Prereq: COI. 3 u. </td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 281</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Robotic Systems.</b> Biologically-motivated robotic systems.
+                Reactive, deliberative, and hybrid architectures. Knowledge
+                representation for robotics systems. Sensor fusion and
+                perceptual strategies. Adaptation and social behavior. Prereq:
+                CS 280/equiv. 3 u. </td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 282</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Computer Vision.</b> Image formation; early vision; segmentation
+                from texture and motion; object representation; matching
+                and inference; knowledge-based vision. Prereq: COI. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 283</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Web Science.</b> The Web as a full communications medium that
+                fosters full collaboration, social interaction, and commerce.
+                Case studies. Prereq: CS 267. 3u. </td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 283</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Data Mining.</b> Decision trees, association rules, clustering.
+                Intrusion detection. Design and use of serial, distributed and
+                parallel data mining algorithms. Prereq: CS 165, 280/COI. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 284</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Machine Learning.</b> Pattern recognition, parametric and nonparametric learning, decision trees, Bayesian and neural
+                networks, reinforcement learning, genetic algorithms,
+                computational learning theory. Prereq: CS 280/COI. 3 u. </td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 286</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Natural Language Understanding.</b> Computational properties
+                of natural languages. Morphological, syntactic and semantic
+                processing from an algorithmic perspective. Models of
+                acquisition and parsing. Prereq: CS 280/COI. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 290</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Advanced Topics in Theoretical Computer Science.</b> Prereq:
+                COI. 3 u., may be taken twice, topic to be indicated for
+                record purposes.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 291</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Advanced Topics in Net-Centric Computing.</b> Prereq: COI. 3 u.,
+                may be taken twice, topic to be indicated for record purposes.
+                </td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 292</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Advanced Topics in Software Technology.</b> Prereq: COI. 3 u.,
+                may be taken twice, topic to be indicated for record purposes.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 293</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Advanced Topics in Computer Systems.</b> Prereq: COI. 3 u., may
+                be taken twice, topic to be indicated for record purposes.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 294</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Advanced Topics in Computational Science.</b> Prereq: COI. 3 u.,
+                may be taken twice, topic to be indicated for record purposes.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 295</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Advanced Topics in Intelligent Systems.</b> Prereq: COI. 3 u., may
+                be taken twice, topic to be indicated for record purposes.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 296</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Seminar.</b> Prereq: COI. 1 u., may be repeated for a maximum of 3 u</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 297</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Special Topics.</b> Prereq: COI. 3 u.; may be repeated if topics are
+                different; topic to be indicated for record purposes. </td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 298</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Special Problem.</b> Prereq: Completion of 12 u. including 6 u. of
+                specialization courses. 3 u.; may be taken twice; problem to
+                be indicated for record purposes. </td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 270</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Special Problem.</b> Prereq: Completion of 12 u. including 6 u. of
+                specialization courses. 3 u.; may be taken twice; problem to
+                be indicated for record purposes.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 300</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Thesis.</b> 6 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 301</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Communication Complexity.</b> Communication complexity
+                and its applications to parallel computing. Communication
+                complexity measures, lower bound techniques. Prereq: CS
+                210/COI 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 315</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Algorithms in Bioinformatics.</b> Algorithm design techniques
+                applied to Bioinformatics Problems, DNA Sequencing, Gene
+                Expression Analysis, and Protein Folding. Prereq: CS 135/COI 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 318</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Approximation Algorithms.</b> Approximate methods for solving
+                a wide range of intractable or hard problems. Prereq: CS 210/
+                COI. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 334</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Computational Systems Biology.</b> Analysis of molecular
+                interaction networks and pathways. Qualitative and
+                quantitative methods and tools applied to biochemical
+                systems. Prereq: COI. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 338</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Computational Models of Biological Processes.</b> Formal
+                models and heuristic approaches for biological processes.
+                Prereq: COI. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 341</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Knowledge Engineering.</b> Reasoning systems to support
+                decision making, learning and action. Prereq: CS 280/COI. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 351</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Pervasive Computing and Communication.</b> Technologies for
+                ubiquitous computing.Prereq: CS 255, CS 267, and CS 280/
+                COI. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 360</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Formal Methods.</b> Program specification, verification, and
+                refinement. Prereq: COI. 3 u. </td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 369</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>The Semantic Web.</b> Web technologies, ontology engineering,
+                social network analysis and web standards. Prereq: CS 267. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 371</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Security Engineering.</b> Security issues in the design and
+                engineering of software-based systems for different
+                platforms. Prereq: CS 253/COI. 3 u</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 380</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Computational Intelligence 1.</b> Metaheuristic algorithms and
+                their utility in solving engineering and scientific problems.
+                Prereq: CS 280/COI. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 381</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Computational Intelligence 2.</b> Agent-based systems and their
+                applications to real-world problems. Prereq: CS 280/COI. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 385</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Artificial Neural Networks.</b> Computational models inspired
+                by the structural and functional aspects of the brain. Prereq:
+                CS 280/COI. 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 389</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Digital Image Processing.</b> Tools and techniques for
+                transformation of images for subsequent human or machine
+                interpretation. Prereq: COI. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 390</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Independent Study.</b> Prereq: Completion of 18 units of CS
+                graduate courses including 6 units of Specialization courses.
+                3 u., may be taken twice.
+                </td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>CS 397</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Special Topics.</b> Prereq: COI. 3 u., may be taken twice provided
+                that topics are different.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>CS 400</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Dissertation.</b> Prereq: completion of all coursework
+                requirements for the program. 12 u., may be spread over 2
+                semesters</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>EE 227</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Modern VLSI Design.</b> Digital systems and VLSI. Transistors
+                and layout. Logic functions. Combinational logic networks.
+                Sequential machines. Systems architecture design and HDLs.
+                Subsystem design and IP components. CAD systems and
+                algorithms. Prereq: EEE 21 or equivalent. 5h (2 lec, 3 lab). 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>EE 264</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Computer Architecture.</b> Evolution of computer architecture.
+                Principles of computer system design. Computer system
+                components. Instruction set design. Processor microarchitecture. Pipelining. Cache and virtual memory
+                organizations. I/O structures. Instructures level parallelism.
+                Prereq: EEE 105/equiv. 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>EE 267</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Embedded Software and Operating Systems.</b> Overview of
+                Embedded Systems. Kernel. Bootloader. Toolchain. Root
+                Filesystems. Memory Technology Devices. I/O Subsystem.
+                Device Driver. Introduction to Applicants Programming.
+                Prereq: EE 260 and EEE 13 or equivalents. 5h (2 lec, 3 lab) 3 u.</td>
+        </tr>
+        
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>EE 270</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Digital Communications I.</b> Methods of digital modulation
+                and demodulation. Signal Space methods in digital
+                communications. Communication over AWGN and bandlimited channels, including channel capacity. Carrier and symbol
+                synchronization. Source coding and lossless compression.
+                Channel coding, including block codes, convolutional codes and
+                Viterbi decoding. Current topics of interest. Prereq: EEE 107 or
+                equivalent. 5h (2h lec, 3h lab). 3 u.</td>
+        </tr> 
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>EE 274</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Digital Signal Processing I.</b> Sampling theorem. Discrete time
+                signals and LTI systems. Discrete convolution. Z-transform.
+                FIR and IIR Digital filters. Discrete Fourier transform. FastFourier Transform. State-space analysis. Prereq: EEE 35/
+                equiv. 5h (2 lec, 3 lab). 3 u.</td>
+        </tr>
+
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>GE 203</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Principles of Geographic Information Sytems.</b>Use of
+                analogue and digital techniques in spatial information
+                collection, storage and analysis. Various geographic
+                information systems. Map projection and registration of data
+                sets. Prereq: COI. 7 h. (1 lec, 6 lab) 3 u.</td>
+        </tr>
+
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>GE 222</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Advanced Geographic Information Systems.</b> Theory and
+                application of advanced techniques in resource estimation,
+                prediction and evaluation using GIS. Design of GIS; Temporal
+                GIS; 3-D GIS; Spatial data quality; Error propagation; Model
+                integration/coupling with GIS; Agent-Based Modeling. Prereq:
+                GmE 203. 5 h ( 2 lec, 3 lab). 3 u. </td>
+        </tr> 
+
+        <tr style="background-color:#fafafc">
+            <td style="text-align:center; width:20%"><b>IE 253</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Information Systems I.</b> Concepts and frameworks of
+                information systems. Analysis and design of information
+                systems. Systems analysis and design tools and techniques.
+                Prereq: ES 26/equiv. 3 u.</td>
+        </tr>
+        <tr style="background-color:#dcdcdd">
+            <td style="text-align:center; width:20%"><b>IE 254</b></td>
+            <td style="text-align:left; width:auto; padding:20px"><b>Information Systems II.</b> Implementation considerations
+                in computer-based information systems design. Database
+                systems. Security and privacy issues in information systems.
+                Information systems management. Prereq: IE 253. 3 u.</td>
+        </tr> 
+
+
+    </table>
+
 </div>
+
+<br>
 {% endblock %}

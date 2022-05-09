@@ -3,6 +3,29 @@
 {% block title %}Student Profiles{% endblock %}
 
 {% block content %}
+<div class="mx-8 mt-4">
+    <table style="width:100%">
+        <tr>
+            <td>Student Name {{ person.person_id }}</td>
+            <td style="text-align:right;">Lab Affiliation</td>
+        </tr>
+        <tr>
+            <td>Student Number</td>
+            <td style="text-align:right;">Lab Adviser</td>
+        </tr>
+        <tr>
+            <td>Course</td>
+            <td></td>
+        </tr>
+    </table>
+    <div class="relative flex items-center">
+        <br>
+        <div class="flex-grow border-t border-stone-500"></div>
+    </div>
+</div>
+
+
+
 <h1 class="font-bold leading-tight text-4xl mx-8 my-6">
     Courses Taken
 </h1>

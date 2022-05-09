@@ -1,36 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-    <style>
-        html {
-            height: 100%;
-        }
-    </style>
-    <title>{% block title %}Graduate Student Progress Tracking System{% endblock %}</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+        <style>
+            html {
+                height: 100%;
+            }
+        </style>
+        <!-- Main CSS File -->
+        {% load static %} <link rel="stylesheet" href="{% static "style.css"%}">
+
+        <title>{% block title %}Graduate Student Progress Tracking System{% endblock %}</title>
+    </head>
+
 <body class="flex flex-col w-full h-full bg-stone-50">
-    <header class="h-20 px-5 items-center bg-slate-50 shadow-md z-40">
-        <h2 align="right">
-            <span>Hello {{request.user}}! </span>
-            <span><a href="{% url 'gspt_test:logout' %}">Logout</a></span>
-        </h2>
-        <h1 class="text-2xl">DCS</h1>
+    <header>
+        <div class="flex space-x-2 pl-3 pt-3 h-24 shadow-md z-40" >
+            <div class="flex-none ">
+                {% load static %} <img src="{% static "up_logo.png" %}" width="70px"/> 
+            </div> 
+                
+            <div class="flex-none" style="margin-left:5px;">
+                {% load static %} <img src="{% static "dcs_logo.png" %}" width="70px"/>
+            </div>
+
+            <div class="flex-none" style="margin-top:15px;margin-left:10px;text-align:left;line-height:120%;">
+                <font color="#7b1113" size="4">University of the Philippines Diliman</font><br>
+                <font color="#146835" size="4">Department of Computer Science</font>
+            </div>
+
+            <div class="flex-grow">    
+                <div class="p-2 px-0" style="text-align:right;margin-top:17.4px;margin-right:2.5px">
+                    Hello {{request.user}}! <!-- Name of user -->
+                </div> 
+            </div> 
+            
+            <div class="flex-none">
+                <div class="dropdown mt-5">
+                    <div class="flex items-center justify-between">
+                            <div class="flex flex-col px-0" style="margin-right:-0.2px">
+                                {% load static %} <img src="{% static "default-user-icon.png"%}" style="height:40px">
+                            </div>
+                            <div class="flex flex-col px-1" style="margin-left:0.5px;margin-right:50px">
+                                {% load static %} <img src="{% static "user-button-down.png"%}" style="height:8px; width:9.5px">
+                            </div>
+                    </div>
+
+                    <div class="dropdown-content">
+                        <!-- To implement-->  <a href="#">Change Password</a>     
+                        <a href="{% url 'gspt_test:logout' %}">Log out</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>  
     </header>
-    <main class="relative flex flex-grow flex-shrink-0">
-        <div class="pl-5 w-60 bg-white shadow-md">
-            <ul class="mt-4">
-                <li><a href="{% url 'gspt_test:index' %}">Home</a></li>
-                <li><a href="{% url 'gspt_test:students' %}">Students</a></li>
-                <li><a href="{% url 'gspt_test:checklist' %}">Curriculum Checklist</a></li>
-            </ul>
+
+    
+    <main class="relative flex flex-grow flex-shrink-0" >
+        <div class="pl-3 w-20 bg-white shadow-md flex-shrink-0" style="background-color:#146835;"> 
+            <br>
+            <a href="{% url 'gspt_test:home' %}"> {% load static %} <img src="{% static "home-white-icon.png"%}" width="50px"></a> <br><br>
+            <a href="{% url 'gspt_test:students' %}"> {% load static %} <img src="{% static "student-profiles-white-icon.png"%}" width="50px"> </a> <br><br>
+            <a href="{% url 'gspt_test:checklist' %}">{% load static %} <img src="{% static "curriculum-checklist-white-icon.png"%}" width="50px"></a>  <br><br>
         </div>
+
+
         <div class="flex-grow">
             {% block content %}
             {% endblock %}
