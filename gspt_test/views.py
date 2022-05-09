@@ -1,12 +1,31 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import *
 
 # Create your views here.
 
+
 def index(request):
-    return render(request, 'gspt_test/index.html')
+    return render(request, "gspt_test/index.html")
+
 
 def students(request):
-    return render(request, 'gspt_test/students.html')
+    people = Person.objects.all()
+    context = {"people": people}
+
+    return render(request, "gspt_test/students.html", context)
+
+
+def study_plan(request, person_id):
+    enrollments = (
+        Enrollment.objects.select_related("course_id")
+        .filter(student_no=person_id)
+        .order_by("year", "sem")
+    )
+
+    context = {"enrollments": enrollments}
+
+    return render(request, "gspt_test/study_plan_sorted_by_sem.html", context)
+    
 
 def checklist(request):
-    return render(request, 'gspt_test/checklist.html')
+    return render(request, "gspt_test/checklist.html")
