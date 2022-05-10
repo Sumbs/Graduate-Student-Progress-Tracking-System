@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="dropdown-content">
-                        <!-- To implement-->  <a href="#">Change Password</a>     
+                        <a href="{% url 'gspt_test:change_password' %}">Change Password</a>     
                         <a href="{% url 'gspt_test:logout' %}">Log out</a>
                     </div>
 
@@ -107,12 +107,18 @@
                 </a> 
             </div>
                 
-
             <div class="flex-auto"></div>
+        <br>
         </div>
-    </main>
+            <br> <br>
+            {% for message in messages %}
+                <b><font color="#7b1113" size="4"><p id="messages" style="text-align:center">{{message}}</p></font></b>
+            {% endfor %}
+        </div>
+        </div>
 
-    
+        
+    </main>
 
 </body>
 
