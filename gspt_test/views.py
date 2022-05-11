@@ -2,9 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from .models import Person, Enrollment
-from .forms import EnrollmentCreateForm
+from .forms import EnrollmentForm
 
 # Create your views here.
 
@@ -64,12 +64,16 @@ def study_plan(request, person_id):
     
 class EnrollmentCreateView(CreateView):
     model = Enrollment
-    form_class = EnrollmentCreateForm
+    form_class = EnrollmentForm
 
     def get_initial(self):
         initial = super().get_initial()
         initial['student_no'] = Person.objects.get(pk=self.kwargs['pk'])
         return initial
+    
+class EnrollmentUpdateView(UpdateView):
+    model = Enrollment
+    form_class = EnrollmentForm
 
 
 @login_required(login_url='gspt_test:login')
