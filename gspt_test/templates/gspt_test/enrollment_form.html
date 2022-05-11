@@ -1,0 +1,16 @@
+{% extends "gspt_test/index.html" %}
+
+{% block title %}Add Course{% endblock %}
+
+{% block content %}
+<h1 class="font-bold leading-tight text-4xl mx-8 my-6">
+    Add A Course
+</h1>
+<div class="mx-8 mt-4">
+<form class="space-y-4" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-4 border border-gray-400 rounded shadow" type="submit" value="Save">
+</form>
+</div>
+{% endblock %}

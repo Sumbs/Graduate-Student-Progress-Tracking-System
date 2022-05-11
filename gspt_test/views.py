@@ -2,7 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import *
+from django.views.generic.edit import CreateView
+from .models import Person, Enrollment
+from .forms import EnrollmentCreateForm
 
 # Create your views here.
 
@@ -51,10 +53,22 @@ def study_plan(request, person_id):
         .order_by("year", "sem")
     )
 
-    context = {"enrollments": enrollments}
+    context = {
+        "enrollments": enrollments,
+        "student_no": person_id,
+    }
 
     return render(request, "gspt_test/study_plan_sorted_by_sem.html", context)
     
+class EnrollmentCreateView(CreateView):
+    model = Enrollment
+    form_class = EnrollmentCreateForm
+
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['student_no'] = Person.objects.get(pk=self.kwargs['pk'])
+        return initial
+
 
 @login_required(login_url='gspt_test:login')
 def checklist(request):

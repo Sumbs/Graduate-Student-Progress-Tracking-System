@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
-
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.urls import reverse
 
 # Create your models here.
 class Degree_Program(models.Model):
@@ -101,6 +101,9 @@ class Enrollment(models.Model):
             return "2nd Semester"
         else:
             return "Midyear"
+    
+    def get_absolute_url(self):
+        return reverse('gspt_test:study_plan', kwargs={'person_id': self.student_no.person_id})
         
 
 class Prereq(models.Model):
