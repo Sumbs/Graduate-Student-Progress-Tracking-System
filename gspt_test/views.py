@@ -48,8 +48,8 @@ def students(request):
 @login_required(login_url='gspt_test:login')
 def study_plan(request, person_id):
     enrollments = (
-        Enrollment.objects.select_related("course_id")
-        .filter(student_no=person_id)
+        Enrollment.objects.select_related("course")
+        .filter(student=person_id)
         .order_by("year", "sem")
     )
 

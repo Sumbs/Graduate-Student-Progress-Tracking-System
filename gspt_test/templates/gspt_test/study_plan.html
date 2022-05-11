@@ -47,8 +47,8 @@
         <tbody>
             {% for enrollment in enrollments %}
             <tr>
-                <td>{{ enrollment.course_id.get_kind_display }}</td>
-                <td>{{ enrollment.course_id.title }}</td>
+                <td>{{ enrollment.course.get_kind_display }}</td>
+                <td>{{ enrollment.course.title }}</td>
                 <td>{{ enrollment.sem }}</td>
                 <td>{{ enrollment.acad_year }}</td>
                 <td>{{ enrollment.grade }}</td>
