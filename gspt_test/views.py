@@ -53,9 +53,11 @@ def study_plan(request, person_id):
         .order_by("year", "sem")
     )
 
+    student = Person.objects.get(pk=person_id)
+
     context = {
         "enrollments": enrollments,
-        "student_no": person_id,
+        "student": student,
     }
 
     return render(request, "gspt_test/study_plan_sorted_by_sem.html", context)

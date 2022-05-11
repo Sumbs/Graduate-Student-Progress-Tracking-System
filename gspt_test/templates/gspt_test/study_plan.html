@@ -6,15 +6,15 @@
 <div class="mx-8 mt-4">
     <table style="width:100%">
         <tr>
-            <td>Student Name {{ person.person_id }}</td>
-            <td style="text-align:right;">Lab Affiliation</td>
+            <td>{{ student }}</td>
+            <td style="text-align:right;">{{ student.lab_affiliation }}</td>
         </tr>
         <tr>
-            <td>Student Number</td>
-            <td style="text-align:right;">Lab Adviser</td>
+            <td>{{ student.person_id }}</td>
+            <td style="text-align:right;">{{ student.lab_adviser }}</td>
         </tr>
         <tr>
-            <td>Course</td>
+            <td>{{ student.current_specialization }}</td>
             <td></td>
         </tr>
     </table>
@@ -31,7 +31,7 @@
 </h1>
 <div class="mx-8 mt-4">
     <div class="my-4">
-        <a class="underline text-blue-600" href="{% url 'gspt_test:add_course' pk=student_no %}">Add Course</a>
+        <a class="underline text-blue-600" href="{% url 'gspt_test:add_course' pk=student.person_id %}">Add Course</a>
     </div>
     <table id="plan" class="display w-full">
         <thead>

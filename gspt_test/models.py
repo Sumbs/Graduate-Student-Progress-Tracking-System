@@ -88,7 +88,7 @@ class Enrollment(models.Model):
     )
 
     def __str__(self):
-        return f"{self.course_id} ({self.get_semester()}, {self.acad_year()}): {self.student_no}"
+        return f"{self.course} ({self.get_semester()}, {self.acad_year()}): {self.student}"
     
     def acad_year(self):
         return f"{self.year}-{self.year + 1}"
