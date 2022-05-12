@@ -31,7 +31,9 @@
 </h1>
 <div class="mx-8 mt-4">
     <div class="my-4">
-        <a class="underline text-blue-600" href="{% url 'gspt_test:enrollment_add' pk=student.person_id %}">Add Course</a>
+        <a class="underline text-blue-600" href="{% url 'gspt_test:enrollment_add' pk=student.person_id %}">
+            Add Course
+        </a>
     </div>
     <table id="plan" class="display w-full">
         <thead>
@@ -42,6 +44,7 @@
                 <th>Academic Year</th>
                 <th>Grade</th>
                 <th>Remark</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -53,13 +56,18 @@
                 <td>{{ enrollment.acad_year }}</td>
                 <td>{{ enrollment.grade }}</td>
                 <td>{{ enrollment.get_remark_display }}</td>
+                <td><a class="underline text-blue-600" href="{% url 'gspt_test:enrollment_edit' pk=student.person_id course_id=enrollment.course.course_id %}?year={{ enrollment.year }}&sem={{ enrollment.sem }}">Edit</a>
+                </td>
                 {% endfor %}
         </tbody>
     </table>
 </div>
 <script>
     let all_subjects_table = new DataTable('#plan', {
-        // options
+        "columnDefs": [{
+            orderable: false,
+            targets: [6]
+        }]
     });
 </script>
 {% block study_plan %}

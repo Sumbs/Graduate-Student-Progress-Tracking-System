@@ -103,7 +103,7 @@ class Enrollment(models.Model):
             return "Midyear"
     
     def get_absolute_url(self):
-        return reverse('gspt_test:study_plan', kwargs={'person_id': self.student_no.person_id})
+        return reverse('gspt_test:study_plan', kwargs={'person_id': self.student.person_id})
         
 
 class Prereq(models.Model):

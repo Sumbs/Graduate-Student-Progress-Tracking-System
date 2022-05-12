@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView, UpdateView
-from .models import Person, Enrollment
+from .models import Person, Enrollment, Course
 from .forms import EnrollmentForm
 
 # Create your views here.
@@ -68,12 +68,27 @@ class EnrollmentCreateView(CreateView):
 
     def get_initial(self):
         initial = super().get_initial()
-        initial['student_no'] = Person.objects.get(pk=self.kwargs['pk'])
+        initial['student'] = Person.objects.get(pk=self.kwargs['pk'])
         return initial
     
 class EnrollmentUpdateView(UpdateView):
     model = Enrollment
     form_class = EnrollmentForm
+    template_name_suffix = '_update_form'
+
+    # def get_initial(self):
+    #     initial = super().get_initial()
+    #     initial['student'] = Person.objects.get(pk=self.kwargs['pk'])
+    #     initial['course'] = Course.objects.get(pk=self.kwargs['course_id'])
+    #     return initial
+
+    def get_object(self):
+        return self.model.objects.get(
+            student=self.kwargs['pk'],
+            course=self.kwargs['course_id'],
+            year=self.request.GET['year'],
+            sem=self.request.GET['sem'],
+        )
 
 
 @login_required(login_url='gspt_test:login')

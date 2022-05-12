@@ -2,7 +2,7 @@
 
 {% block title %}Student Profiles{% endblock %}
 
-{% block content %} 
+{% block content %}
 <div class="mx-8 mt-4">
     <font color="#146835" size="7">Student Profiles</font>
     <div class="relative flex items-center">
@@ -23,7 +23,11 @@
             {% for person in people %}
             <tr>
                 <td>{{ person.person_id }}</td>
-                <td><a class="underline text-blue-600" href="{% url 'gspt_test:study_plan' person_id=person.person_id %}">{{ person.first_name }} {{ person.last_name }}</a></td>
+                <td>
+                    <a class="underline text-blue-600" href="{% url 'gspt_test:study_plan' person_id=person.person_id %}">
+                        {{ person.first_name }} {{ person.last_name }}
+                    </a>
+                </td>
                 <td>{{ person.year_standing }}</td>
                 <td>{{ person.lab_affiliation }}</td>
                 <td>{{ person.current_specialization }}</td>
