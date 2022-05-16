@@ -70,7 +70,9 @@ def study_plan(request, person_id):
 
     return render(request, "gspt_test/study_plan_sorted_by_sem.html", context)
     
-class EnrollmentCreateView(CreateView):
+class EnrollmentCreateView(LoginRequiredMixin, CreateView):
+    login_url = 'gspt_test:login'
+    redirect_field_name = 'next'
     model = Enrollment
     form_class = EnrollmentForm
 
@@ -79,7 +81,9 @@ class EnrollmentCreateView(CreateView):
         initial['student'] = Person.objects.get(pk=self.kwargs['pk'])
         return initial
     
-class EnrollmentUpdateView(UpdateView):
+class EnrollmentUpdateView(LoginRequiredMixin, UpdateView):
+    login_url = 'gspt_test:login'
+    redirect_field_name = 'next'
     model = Enrollment
     form_class = EnrollmentForm
     template_name_suffix = '_update_form'
@@ -93,7 +97,9 @@ class EnrollmentUpdateView(UpdateView):
         )
 
 
-class EnrollmentDeleteView(DeleteView):
+class EnrollmentDeleteView(LoginRequiredMixin, DeleteView):
+    login_url = 'gspt_test:login'
+    redirect_field_name = 'next'
     model = Enrollment
 
     def get_object(self):
