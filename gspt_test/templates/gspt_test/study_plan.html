@@ -45,6 +45,7 @@
                 <th>Grade</th>
                 <th>Remark</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -56,7 +57,11 @@
                 <td>{{ enrollment.acad_year }}</td>
                 <td>{{ enrollment.grade }}</td>
                 <td>{{ enrollment.get_remark_display }}</td>
-                <td><a class="underline text-blue-600" href="{% url 'gspt_test:enrollment_edit' pk=student.person_id course_id=enrollment.course.course_id %}?year={{ enrollment.year }}&sem={{ enrollment.sem }}">Edit</a>
+                <td>
+                    <a class="underline text-blue-600" href="{% url 'gspt_test:enrollment_edit' pk=student.person_id course_id=enrollment.course.course_id %}?year={{ enrollment.year }}&sem={{ enrollment.sem }}">Edit</a>
+                </td>
+                <td>
+                    <a class="underline text-red-600" href="{% url 'gspt_test:enrollment_delete' pk=student.person_id course_id=enrollment.course.course_id %}?year={{ enrollment.year }}&sem={{ enrollment.sem }}">Delete</a>
                 </td>
                 {% endfor %}
         </tbody>
@@ -66,7 +71,7 @@
     let all_subjects_table = new DataTable('#plan', {
         "columnDefs": [{
             orderable: false,
-            targets: [6]
+            targets: [6, 7]
         }]
     });
 </script>

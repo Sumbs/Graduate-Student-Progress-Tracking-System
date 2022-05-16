@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 from .models import Person, Enrollment, Course
 from .forms import EnrollmentForm
 
@@ -76,11 +77,17 @@ class EnrollmentUpdateView(UpdateView):
     form_class = EnrollmentForm
     template_name_suffix = '_update_form'
 
-    # def get_initial(self):
-    #     initial = super().get_initial()
-    #     initial['student'] = Person.objects.get(pk=self.kwargs['pk'])
-    #     initial['course'] = Course.objects.get(pk=self.kwargs['course_id'])
-    #     return initial
+    def get_object(self):
+        return self.model.objects.get(
+            student=self.kwargs['pk'],
+            course=self.kwargs['course_id'],
+            year=self.request.GET['year'],
+            sem=self.request.GET['sem'],
+        )
+
+
+class EnrollmentDeleteView(DeleteView):
+    model = Enrollment
 
     def get_object(self):
         return self.model.objects.get(
@@ -89,6 +96,9 @@ class EnrollmentUpdateView(UpdateView):
             year=self.request.GET['year'],
             sem=self.request.GET['sem'],
         )
+
+    def get_success_url(self):
+        return reverse_lazy('gspt_test:study_plan', kwargs={'person_id': self.object.student.person_id})
 
 
 @login_required(login_url='gspt_test:login')
