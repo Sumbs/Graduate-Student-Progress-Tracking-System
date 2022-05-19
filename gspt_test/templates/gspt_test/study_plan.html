@@ -30,14 +30,9 @@
     Courses Taken
 </h1>
 <div class="mx-8 mt-4">
-    <div class="my-4">
-        <a class="underline text-blue-600" href="{% url 'gspt_test:enrollment_add' pk=student.person_id %}">
-            Add Course
-        </a>
-    </div>
     <table id="plan" class="display w-full">
         <thead>
-            <tr>
+            <tr style="background-color: #146835; color:white">
                 <th>Course Type</th>
                 <th>Course Title</th>
                 <th>Semester</th>
@@ -53,10 +48,10 @@
             <tr>
                 <td>{{ enrollment.course.get_kind_display }}</td>
                 <td>{{ enrollment.course.title }}</td>
-                <td>{{ enrollment.sem }}</td>
-                <td>{{ enrollment.acad_year }}</td>
-                <td>{{ enrollment.grade }}</td>
-                <td>{{ enrollment.get_remark_display }}</td>
+                <td class="text-center">{{ enrollment.sem }}</td>
+                <td class="text-center">{{ enrollment.acad_year }}</td>
+                <td class="text-center">{{ enrollment.grade }}</td>
+                <td class="text-center">{{ enrollment.get_remark_display }}</td>
                 <td>
                     <a class="underline text-blue-600" href="{% url 'gspt_test:enrollment_edit' pk=student.person_id course_id=enrollment.course.course_id %}?year={{ enrollment.year }}&sem={{ enrollment.sem }}">Edit</a>
                 </td>
@@ -66,7 +61,15 @@
                 {% endfor %}
         </tbody>
     </table>
+    <div class="flex justify-end mt-8">
+        <a class="text-right" href="{% url 'gspt_test:enrollment_add' pk=student.person_id %}">
+                Add a course
+            </button>
+        </a>
+    </div
 </div>
+
+
 <script>
     let all_subjects_table = new DataTable('#plan', {
         "columnDefs": [{

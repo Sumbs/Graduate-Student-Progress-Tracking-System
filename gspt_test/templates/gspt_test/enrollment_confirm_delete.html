@@ -3,15 +3,24 @@
 {% block title %}Add Course{% endblock %}
 
 {% block content %}
-<h1 class="font-bold leading-tight text-4xl mx-8 my-6">
-    Delete A Course
-</h1>
 <div class="mx-8 mt-4">
-<form class="space-y-4" method="post">
-    {% csrf_token %}
-    <p>Are you sure you want to delete "{{ object }}"?</p>
-    {{ form }}
-    <input class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-4 border border-gray-400 rounded shadow" type="submit" value="Confirm">
-</form>
+    <font color="#146835" size="7">Delete Course</font>
+    <div class="relative flex items-center">
+        <div class="flex-grow border-t border-stone-500"></div>
+    </div>
+
+    <div class ="text-center mt-24 w-full">
+        <div class="bg-red-100 rounded-3xl w-1/2" style="margin-right:auto; margin-left:auto">
+            <br>
+            <form class="space-y-4" method="post">
+                {% csrf_token %}
+                <p>Are you sure you want to <b>delete</b> <br> <i>{{ object }}?</i></p>
+                <a href="javascript:history.back()"><button class="bg-zinc-50 hover:bg-zinc-400 font-bold py-2 px-4 rounded">Go Back</button></a>
+                {{ form }}
+                <input class="bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded" type="submit" value="Confirm">
+            </form>
+            <br>
+        </div>
+    </div>
 </div>
 {% endblock %}

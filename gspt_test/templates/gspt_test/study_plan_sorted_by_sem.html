@@ -1,21 +1,21 @@
 {% extends "gspt_test/study_plan.html" %}
 
 {% block study_plan %}
-<h1 class="font-bold leading-tight text-4xl mx-8 my-6">
+<h1 class="font-bold leading-tight text-4xl my-6">
     Courses Sorted by Semester
 </h1>
-<div class="mx-8 my-4 grid grid-cols-2 gap-10">
+<div class="grid grid-cols-2 gap-10">
     {% regroup enrollments by year as acad_year %}
     {% for enroll_year in acad_year %}
     {% regroup enroll_year.list by sem as semesters %}
     {% for semester in semesters %}
     <div>
-        <h2 class="font-bold leading-tight text-xl mx-4 my-4">
+        <h2 class="font-bold leading-tight text-xl my-4">
             {{ semester.list.0.get_semester }}, A.Y. {{ enroll_year.grouper }}-{{ enroll_year.grouper|add:1 }}
         </h2>
         <table class="display w-full">
             <thead>
-                <tr>
+                <tr style="background-color: #146835; color:white">
                     <th>Course Title</th>
                     <th>Unit</th>
                     <th>Grade</th>
@@ -28,10 +28,10 @@
                 {% for class in semester.list %}
                 <tr>
                     <td>{{ class.course.title }}</td>
-                    <td>{{ class.course.units }}</td>
-                    <td>{{ class.grade }}</td>
-                    <td>{{ class.get_remark_display }}</td>
-                    <td>
+                    <td class="text-center">{{ class.course.units }}</td>
+                    <td class="text-center">{{ class.grade }}</td>
+                    <td class="text-center">{{ class.get_remark_display }}</td>
+                    <td class="text-center">
                         <a class="underline text-blue-600" href="{% url 'gspt_test:enrollment_edit' pk=student.person_id course_id=class.course.course_id %}?year={{ class.year }}&sem={{ class.sem }}">Edit</a>
                     </td>
                     <td>
@@ -46,4 +46,6 @@
     {% endfor %}
     {% endfor %}
 </div>
+<br>
+<br>
 {% endblock %}

@@ -4,63 +4,75 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>Log-in - DCS Graduate Student Progress Tracking System</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- Main CSS File -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <style>
+            html {
+                height: 100%;
+            }
+        </style>
+        <!-- Main CSS File -->
+        {% load static %} <link rel="stylesheet" href="{% static "style.css"%}">
+
+        <title>{% block title %}Log-in - Graduate Student Progress Tracking System{% endblock %}</title>
+    </head>
 
 <body>
-    <div id="page-container">
-        <!-- LOGIN FORM -->
-        <br>
+    <header>
+        <div class="flex space-x-2 z-40 w-full text-center" style="padding: 100px 15px 15px 15px;">
+            <div class="flex-auto"></div>
+            <div class="flex-none">
+                {% load static %} <img src="{% static "up_logo.png" %}" width="125px"/> 
+            </div> 
+            <div class="flex-none" style="margin-left:5px;">
+                {% load static %} <img src="{% static "dcs_logo.png" %}" width="125px"/>
+            </div>
+            <div class="flex-auto"></div>
+        </div>
+        <center>
+            <font color="#7b1113" size="6">University of the Philippines Diliman</font><br>
+            <font color="#146835" size="6">Department of Computer Science</font><br><br>
+        </center>
+    </header>
+
+    <main class="relative flex-grow flex-shrink-0 text-center" style ="margin-top:-80px">   
         <form method="POST" action="">
             <br> {% csrf_token %} <br> 
-
             <br>
             {% if request.GET.next %}
                 <input type="hidden" name="next" value="{{ request.GET.next }}">
             {% endif %}
-
-        <section id="home" class="d-flex">
-            <div class="container">
-                <center>
-                    {% load static %} <img src="{% static "up_logo.png" %}"  height="150px" style="margin-left:auto; margin-right:auto;">
-                    {% load static %} <img src="{% static "dcs_logo.png" %}" height="150px" style="margin-left:auto; margin-right:auto;">
-                    <br>
-                    <font color="#7b1113" size="6">University of the Philippines Diliman</font><br>
-                    <font color="#146835" size="6">Department of Computer Science</font><br><br>
-
-                    <div class="container" style="margin-left:auto; margin-right:auto;">
-                        <br>
-                        <input type="text" name = "username" style="width:700px; height:40px" placeholder="Username / E-mail Address" class="form-control"><br>
-                        <input type="password" name = "password" style="width:700px; height:40px" placeholder="Password" class="form-control">
-                    </div>
-
-                    <!-- LOGIN BUTTON -->
-                    <br>
-                    <a><button type="submit" data-toggle="button" class="btn btn-danger form-control" style="width:700px; background-color:#7b1113">LOG IN</button></center></a>
-                </center>
+            
             </div>
-  
-        </section>
+                {% for message in messages %}
+                    <p id="messages" style="text-align:center"><font color="#7b1113"><i>{{message}}</i></font></p>
+                {% endfor %}
+            </div>
+
+            <div class="container" style="margin-left:auto; margin-right:auto;">
+                <br>
+                <input  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="username" id="username" type="text" placeholder="Username/Email Address" style="width:700px; height:40px">
+                <br><br>
+                <input  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="password" id="password" type="password" placeholder="Password" style="width:700px; height:40px">
+            </div>
+
+            <!-- LOGIN BUTTON -->
+            <br>
+            <a><button class="bg-red-900 hover:bg-red-800 text-white rounded focus:outline-none focus:shadow-outline" data-toggle="button"  type="submit" style="width:700px; height:30px;">
+                LOG IN
+            </button></a>
+            
+        
         </form>
         
         <br>
-        </div>
-            {% for message in messages %}
-                <p id="messages" style="text-align:center">{{message}}</p>
-            {% endfor %}
-        </div>
+        
 
-    </div>
-
+    </main>
 </body>
 
 </html>
