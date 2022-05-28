@@ -12,6 +12,7 @@ urlpatterns = [
     path('students/<int:pk>/<int:course_id>/edit_course', views.EnrollmentUpdateView.as_view(), name = 'enrollment_edit'),
     path('students/<int:pk>/<int:course_id>/delete_course', views.EnrollmentDeleteView.as_view(), name = 'enrollment_delete'),
     path('checklist', views.checklist, name = 'checklist'),
+    path('students/<int:person_id>/export', views.export_to_csv, name = 'export'),
     path('login', views.loginUser, name = 'login'),
     path('logout', views.logoutUser, name = 'logout'),
     path('home', views.home, name = 'home'),

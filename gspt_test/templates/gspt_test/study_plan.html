@@ -59,16 +59,18 @@
                     <a class="underline text-red-600" href="{% url 'gspt_test:enrollment_delete' pk=student.person_id course_id=enrollment.course.course_id %}?year={{ enrollment.year }}&sem={{ enrollment.sem }}">Delete</a>
                 </td>
                 {% endfor %}
+            </tr>
         </tbody>
     </table>
-    <div class="flex justify-end mt-8">
+    <div class="flex justify-end mt-8 flex-col">
         <a class="text-right underline text-blue-600" href="{% url 'gspt_test:enrollment_add' pk=student.person_id %}">
-                Add a course
-            </button>
+            Add a course
         </a>
-    </div
+        <a class="text-right underline text-blue-600" href="{% url 'gspt_test:export' person_id=student.person_id %}">
+            Export to CSV
+        </a>
+    </div>
 </div>
-
 
 <script>
     let all_subjects_table = new DataTable('#plan', {

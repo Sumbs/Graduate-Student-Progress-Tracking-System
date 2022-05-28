@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -10,6 +10,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Person, Enrollment, Course
 from .forms import EnrollmentForm
+import csv
 
 
 # Create your views here.
@@ -115,6 +116,46 @@ class EnrollmentDeleteView(LoginRequiredMixin, DeleteView):
 
 
 @login_required(login_url='gspt_test:login')
+def export_to_csv(request, person_id):
+    enrollments = (
+        Enrollment.objects.select_related("course")
+        .filter(student=person_id)
+        .order_by("year", "sem")
+    )
+
+    student = Person.objects.get(pk=person_id)
+
+    filename = student.last_name + str(student.person_id) + ".csv"
+
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': f'attachment; filename="{filename}"'},
+    )
+
+    writer = csv.writer(response)
+    writer.writerow([
+        "Year",
+        "Sem",
+        "Course Type",
+        "Course Title",
+        "Units",
+        "Grade",
+        "Remark",
+    ])
+    for enrollment in enrollments.all():
+        writer.writerow([
+            enrollment.year,
+            enrollment.sem,
+            enrollment.course.get_kind_display(),
+            enrollment.course,
+            enrollment.course.units,
+            str(enrollment.grade),
+            enrollment.get_remark_display(),
+        ])
+
+    return response
+
+@login_required(login_url='gspt_test:login')
 def checklist(request):
     return render(request, "gspt_test/checklist.html")
 
@@ -128,4 +169,3 @@ class change_password(LoginRequiredMixin, SuccessMessageMixin, PasswordChangeVie
     template_name = 'gspt_test/change_password.html'
     success_url = reverse_lazy('gspt_test:home')
     success_message = 'Password Changed Succesfully!'
-
