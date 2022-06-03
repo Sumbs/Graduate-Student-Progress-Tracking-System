@@ -32,7 +32,7 @@
 <div class="mx-8 mt-4">
     <table id="plan" class="display w-full">
         <thead>
-            <tr style="background-color: #146835; color:white">
+            <tr style="background-color: #146835; color:white;">
                 <th>Course Type</th>
                 <th>Course Title</th>
                 <th>Semester</th>
@@ -62,12 +62,12 @@
             </tr>
         </tbody>
     </table>
-    <div class="flex justify-end mt-8 flex-col">
-        <a class="text-right underline text-blue-600" href="{% url 'gspt_test:enrollment_add' pk=student.person_id %}">
-            Add a course
+    <div class="flex justify-end mt-8">
+        <a href="{% url 'gspt_test:enrollment_add' pk=student.person_id %}">
+            <button type="button" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 mr-4 rounded" >Add a Course</button>
         </a>
-        <a class="text-right underline text-blue-600" href="{% url 'gspt_test:export' person_id=student.person_id %}">
-            Export to CSV
+        <a class="text-green-700" href="{% url 'gspt_test:export' person_id=student.person_id %}">
+            <button type="button" class="bg-zinc-50 hover:bg-zinc-200 font-bold py-2 px-4 border border-green-700 rounded">Export to CSV</button>
         </a>
     </div>
 </div>
